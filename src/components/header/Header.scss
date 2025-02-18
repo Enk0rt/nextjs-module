@@ -1,0 +1,16 @@
+.header{
+  padding: 24px 0;
+  background: white;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  color: black;
+  box-shadow: 0 5px 20px -6px rgba(0, 0, 0, 0.75);
+  &__container{
+  }
+  &__user{
+    &-img{
+
+    }
+  }
+}

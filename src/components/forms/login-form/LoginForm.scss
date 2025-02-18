@@ -1,0 +1,56 @@
+.form{
+  padding: 20px;
+  width: 360px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  gap: 24px;
+  background-color: white;
+  color: #0a0a0a;
+
+  border-radius: 20px;
+  &__title{
+    color: black;
+    text-align: center;
+  }
+  &__input{
+    position: relative;
+
+
+    &-title{
+      padding: 0 4px;
+      position: absolute;
+      top:-12px;
+      left: 20px;
+      background-color: white;
+    }
+    &-field{
+      width: 100%;
+      padding: 8px 16px;
+      border: 1px solid black;
+      border-radius: 20px;
+    }
+  }
+  &__btn{
+    width: 100px;
+    align-self: center;
+    padding: 2px 15px;
+    border: 1px solid transparent;
+    border-radius: 20px;
+    transition: .3s ease;
+    background-color: transparent;
+    &:hover,{
+      border: 1px solid black;
+      border-radius: 20px;
+      background-color: black;
+      color: white;
+    }
+    &:focus{
+      border: 1px solid black;
+      border-radius: 20px;
+      background-color: black;
+      color: white;
+    }
+  }
+}
