@@ -2,8 +2,7 @@
 import Modal from "@/components/modal/Modal";
 import LoginForm from "@/components/forms/login-form/LoginForm";
 import {useState} from "react";
-
-
+import './Login.scss'
 
 
 const Login = () => {
@@ -13,7 +12,7 @@ const Login = () => {
     }
     return (
         <div>
-            <button className={'nav__list-item'} onClick={handleClick}>Login</button>
+            <button className={'nav__list-item nav__list-item--green'} onClick={handleClick}>Login</button>
             <Modal isActive={isActive} setIsActive={setIsActive}>
                 <LoginForm setIsActive={setIsActive}/>
             </Modal>

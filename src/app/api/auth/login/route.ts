@@ -9,9 +9,9 @@ export async function POST (request:Request) {
 
     const {accessToken,refreshToken,...user} = res.data
 
-    const response = NextResponse.json({message: "Logged in",user})
+    const response = NextResponse.json({user})
 
     await setCookies(accessToken,refreshToken)
-    return response
 
+    return response
 }

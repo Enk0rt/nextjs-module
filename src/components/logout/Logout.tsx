@@ -1,20 +1,13 @@
+'use client'
+import './Logout.scss'
 
-import {Dispatch, SetStateAction} from "react";
-
-interface LogoutProps {
-    setIsAuth: Dispatch<SetStateAction<boolean>>
-}
-
-const Logout = ({setIsAuth}: LogoutProps) => {
+const Logout =() => {
     const handleLogout = () => {
        localStorage.removeItem('user')
-        setIsAuth(false);
     };
     return (
         <div>
-            <form action="">
-                <button onClick={handleLogout}>Logout</button>
-            </form>
+                <button className={'nav__list-item nav__list-item--red'} onClick={handleLogout}>Logout</button>
         </div>
     );
 };

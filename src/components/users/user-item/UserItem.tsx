@@ -4,7 +4,7 @@ interface UserItemProps {
     user: IUser
 }
 
-const UserItem = async ({user}: UserItemProps) => {
+const UserItem =  ({user}: UserItemProps) => {
     return (
         <div>
             {user.firstName} {user.lastName}

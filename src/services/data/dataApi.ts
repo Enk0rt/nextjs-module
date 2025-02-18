@@ -1,8 +1,10 @@
 import axios from "axios";
 import {cookies} from "next/headers";
 import {baseApiUrl} from "@/constants/constants";
-import {IUserResponse} from "@/models/user/IUserResponse";
 import {refresh} from "@/services/auth/authUser";
+import {setCookies} from "@/server-actions/setCookies";
+import {redirect} from "next/navigation";
+import {retrieveCookie} from "@/services/data/helpers/retrieveCookies";
 
 export const axiosInstance = axios.create({
     baseURL: baseApiUrl,
@@ -11,10 +13,10 @@ export const axiosInstance = axios.create({
 
 axiosInstance.interceptors.request.use(
     async (config) => {
-        const userAccessToken = (await cookies()).get("accessToken")?.value;
+        const {accessToken} = await retrieveCookie()
 
-        if (userAccessToken) {
-            config.headers.Authorization = `Bearer ${userAccessToken}`;
+        if (accessToken) {
+            config.headers.Authorization = `Bearer ${accessToken}`;
         }
 
         return config;
@@ -26,33 +28,31 @@ axiosInstance.interceptors.response.use(
     (response) => response,
     async (error) => {
         if (error.response?.status === 401 && !error.config._retry) {
-            console.warn("Access token expired, refreshing...");
-            error.config._retry = true;
 
             try {
-                console.log("START REFRESHING...")
+                const cookieStore = await cookies()
+                const refreshToken = cookieStore.get("refreshToken")?.value;
+                if (!refreshToken) {
+                    throw new Error("No refresh token available");
+                }
+
                 const refreshResponse = await refresh()
                 const {accessToken: accessToken, refreshToken: newRefreshToken} = await refreshResponse.json();
-
-                console.log("NEW REFRESH TOKEN RECEIVED - "+newRefreshToken)
-                // ЯК ТУТ ЗАСЕТАТЬ ОТРИМАНІ КУКІ
+                await setCookies(accessToken,newRefreshToken)
 
                 if (refreshResponse.status === 200) {
-                    console.log("TRYING TO GET USERS AGAIN...")
                     error.config.headers.Authorization = `Bearer ${accessToken}`;
-                    console.log("SUCCESS")
                     return axiosInstance.request(error.config);
                 }
-            } catch (refreshError) {
-                console.error("Failed to refresh token", refreshError);
-                throw new Error("Session expired, please log in again.");
+            } catch {
+                redirect('/')
             }
         }
 
         return Promise.reject(error);
     }
 );
-export const getUsers = async () => {
-    const response = await axiosInstance.get<IUserResponse>("/auth/users");
+export const getApiData = async <T>(url:string):Promise<T> => {
+    const response = await axiosInstance.get<T>(url);
     return response.data;
 };

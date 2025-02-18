@@ -19,12 +19,11 @@ const LoginForm = ({setIsActive}: LoginFormProps) => {
     })
 
     const submitAndLogin = async (formData: IForm) => {
-        console.log(formData)
-        const response = await axios.post<IUserWithTokens>('http://localhost:3000/api/auth/login', formData)
-        localStorage.setItem('user',JSON.stringify(response.data))
-        console.log('logged')
+        const {data} = await axios.post<IUserWithTokens>('http://localhost:3000/api/auth/login', formData)
+        localStorage.setItem('user',JSON.stringify(data))
         reset()
         setIsActive(false)
+        window.location.reload()
     }
 
     return (

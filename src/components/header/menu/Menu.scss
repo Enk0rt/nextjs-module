@@ -16,13 +16,11 @@
       transition: .3s ease;
       background-color: transparent;
       &:hover,{
-        border: 1px solid black;
         border-radius: 20px;
         background-color: black;
         color: white;
       }
       &:focus{
-        border: 1px solid black;
         border-radius: 20px;
         background-color: black;
         color: white;

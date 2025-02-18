@@ -1,11 +1,11 @@
 import { NextResponse } from "next/server";
 import {getApiData} from "@/services/data/dataApi";
-import {IUserResponse} from "@/models/user/IUserResponse";
+import {IRecipeResponse} from "@/models/recipe/IRecipeResponse";
 
 export async function GET() {
        try {
-              const {users} = await getApiData<IUserResponse>("/auth/users");
-              return NextResponse.json({ users });
+              const {recipes} = await getApiData<IRecipeResponse>("/auth/recipes");
+              return NextResponse.json({ recipes });
        } catch {
               return NextResponse.json({ error: "Failed to fetch users" }, { status: 500 });
        }

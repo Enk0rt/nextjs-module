@@ -9,7 +9,7 @@ export async function  setCookies(accessToken: string, refreshToken: string) {
         httpOnly: true,
         path: "/",
         sameSite: "lax",
-        maxAge:  7 * 24 * 60 * 60,
+        maxAge:  60
     });
 
     cookieStore.set("refreshToken", refreshToken, {
