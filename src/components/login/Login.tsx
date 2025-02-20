@@ -14,7 +14,7 @@ const Login = () => {
         <div>
             <button className={'nav__list-item nav__list-item--green'} onClick={handleClick}>Login</button>
             <Modal isActive={isActive} setIsActive={setIsActive}>
-                <LoginForm setIsActive={setIsActive}/>
+                <LoginForm isActive={isActive} setIsActive={setIsActive}/>
             </Modal>
         </div>
     );

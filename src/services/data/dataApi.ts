@@ -38,7 +38,7 @@ axiosInstance.interceptors.response.use(
 
                 const refreshResponse = await refresh()
                 const {accessToken: accessToken, refreshToken: newRefreshToken} = await refreshResponse.json();
-                await setCookies(accessToken,newRefreshToken)
+                await setCookies(accessToken, newRefreshToken)
 
                 if (refreshResponse.status === 200) {
                     error.config.headers.Authorization = `Bearer ${accessToken}`;
@@ -52,7 +52,7 @@ axiosInstance.interceptors.response.use(
         return Promise.reject(error);
     }
 );
-export const getApiData = async <T>(url:string):Promise<T> => {
-    const response = await axiosInstance.get<T>(url);
-    return response.data;
-};
+export const getApiData = async <T>(url: string): Promise<T> => {
+        const response = await axiosInstance.get<T>(url);
+        return response.data;
+}

@@ -1,0 +1,63 @@
+.recipe__details {
+  width: 100%;
+  height: 86vh;
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &-container {
+    padding: 32px;
+    border-radius: 20px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(5px);
+    display: flex;
+    flex-direction: column;
+  }
+
+  &-title {
+    font-size: 42px;
+    text-align: center;
+  }
+
+  &-info {
+    margin-top: 20px;
+    display: flex;
+    gap: 60px;
+    &-tag{
+      display: flex;
+      gap: 8px;
+     width: fit-content;
+    }
+
+    &-ingredients {
+      margin-top: 12px;
+      &-list {
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin-top: 12px;
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.25);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        font-size: 20px;
+      }
+    }
+  }
+  &-link{
+    padding: 4px 12px;
+    margin: 12px auto 0 auto;
+    display: block;
+    width: fit-content;
+    text-align: center;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+  }
+}

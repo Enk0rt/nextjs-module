@@ -1,14 +1,15 @@
 
 import RecipeList from "@/components/recipes/recipe-list/RecipeList";
+import {Suspense} from "react";
 
 
-const Users = () => {
+const Recipes = () => {
+
     return (
-        <div>
-            <h1>Users Page</h1>
-            <RecipeList/>
-        </div>
+        <Suspense fallback={<div><h2>Loading...</h2></div>}>
+                <RecipeList/>
+        </Suspense>
     );
 };
 
-export default Users;
+export default Recipes;

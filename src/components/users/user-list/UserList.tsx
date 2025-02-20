@@ -1,37 +1,54 @@
 'use client'
-import { useEffect, useState } from "react";
+import {Suspense, useState} from "react";
 import UserItem from "@/components/users/user-item/UserItem";
-import {redirect} from "next/navigation";
 import {IUser} from "@/models/user/IUser";
+import Pagination from "@/components/pagination/Pagination";
+import {useGetPaginatedItems} from "@/hooks/useGetItems";
+import './Users.scss'
+import {Search} from "@/components/search/Search";
+
+const USERS_PER_PAGE = 5
 
 const UserList = () => {
-    const [users, setUsers] = useState<IUser[]>([]);
+    const [users, setUsers] = useState<IUser[]>([])
+    const [page, setPage] = useState(1)
+    const [totalUsers, setTotalUsers] = useState(0)
+    const [loading, setLoading] = useState<boolean>(false)
 
-    useEffect(() => {
-        const fetchUsers = async () => {
-            try {
-                const response = await fetch("http://localhost:3000/users/api");
-
-                if (!response.ok) {
-                    throw new Error("Failed to fetch users");
-                }
-
-                const data = await response.json();
-                setUsers(data.users);
-            } catch {
-                redirect('/')
-            }
-        };
-
-        fetchUsers();
-    }, []);
+    const fetched = useGetPaginatedItems<IUser>(page,
+        'users',
+        setLoading,
+        USERS_PER_PAGE,
+        setUsers,
+        "users",
+        setTotalUsers)
 
     return (
-        <div>
-            {users.map((user, index) => (
-                <UserItem key={index} user={user} />
-            ))}
-        </div>
+        <Suspense fallback={<div className={'loader'}><h2>Loading...</h2></div>}>
+            <div className={'wrapper'}>
+                <section className={'users'}>
+                    <Search type={'users'}/>
+                    <div className={'users__container'}>
+                        {loading ?
+                            <div className={'loader'}><h2>Loading...</h2></div>
+                            : (
+                                <div className={'users__list'}>
+                                    {users.map((user, index) => <UserItem key={index} user={user}/>)}
+                                </div>
+                            )}
+                        <div className={'users__pagination'}>
+                            <Pagination
+                                page={page}
+                                setPage={setPage}
+                                total={totalUsers}
+                                limit={USERS_PER_PAGE}
+                                fetched={fetched}
+                            />
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </Suspense>
     );
 };
 

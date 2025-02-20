@@ -1,13 +1,13 @@
 
 import UserList from "@/components/users/user-list/UserList";
+import {Suspense} from "react";
 
 
 const Users = () => {
     return (
-        <div>
-            <h1>Users Page</h1>
+        <Suspense fallback={<div>Loading...</div>}>
             <UserList/>
-        </div>
+        </Suspense>
     );
 };
 

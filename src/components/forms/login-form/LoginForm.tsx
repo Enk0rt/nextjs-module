@@ -3,16 +3,16 @@ import {useForm} from "react-hook-form";
 import {IForm} from "@/models/form/IForm";
 import {loginValidator} from "@/validators/login-validator/LoginValidator";
 import {joiResolver} from "@hookform/resolvers/joi";
-import React, {Dispatch, SetStateAction} from "react";
+import React, {Dispatch, SetStateAction, useEffect, useState} from "react";
 import axios from "axios";
 import {IUserWithTokens} from "@/models/auth/IUserWithTokens";
 
 interface LoginFormProps {
     setIsActive: Dispatch<SetStateAction<boolean>>,
+    isActive: boolean
 }
 
-const LoginForm = ({setIsActive}: LoginFormProps) => {
-
+const LoginForm = ({setIsActive, isActive}: LoginFormProps) => {
     const {handleSubmit, register, reset} = useForm<IForm>({
         mode: 'all',
         resolver: joiResolver(loginValidator)
@@ -20,11 +20,17 @@ const LoginForm = ({setIsActive}: LoginFormProps) => {
 
     const submitAndLogin = async (formData: IForm) => {
         const {data} = await axios.post<IUserWithTokens>('http://localhost:3000/api/auth/login', formData)
-        localStorage.setItem('user',JSON.stringify(data))
+        localStorage.setItem('user', JSON.stringify(data))
         reset()
         setIsActive(false)
         window.location.reload()
     }
+
+    useEffect(() => {
+        if(!isActive){
+            reset()
+        }
+    }, [isActive]);
 
     return (
         <div>

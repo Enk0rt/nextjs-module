@@ -8,10 +8,13 @@ type ModalProps = {
 }
 
 const Modal: FC<ModalProps> = ({children, isActive, setIsActive}) => {
+    const clickToCloseAndReset = () => {
+        setIsActive(false)
+    }
     return (
         <div className={isActive ? "modal active" : "modal"}>
-            <div className="modal__wrapper" onClick={()=>setIsActive(false)}>
-                <div className={"modal__content"} onClick={(e)=>e.stopPropagation()}>
+            <div className="modal__wrapper" onClick={clickToCloseAndReset}>
+                <div className={"modal__content"} onClick={(e) => e.stopPropagation()}>
                     {children}
                 </div>
             </div>

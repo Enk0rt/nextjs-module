@@ -1,0 +1,20 @@
+.user__item{
+  padding: 4px 16px;
+  border-radius: 22px;
+  border: 1px solid black;
+  transition: all 0.3s ease;
+  transform-origin: center;
+  will-change: transform;
+  backface-visibility: hidden;
+  background: rgba(255, 255, 255, 0.49);
+
+  &:hover{
+    background-color: rgba(255, 255, 255, 0.71);
+    transform: scale(1.1);
+
+  }
+  &-content{
+    padding: 0 8px;
+    font-size: 22px;
+  }
+}
