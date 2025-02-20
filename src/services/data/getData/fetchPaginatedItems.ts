@@ -19,7 +19,6 @@ export const fetchPaginatedItems = async <T>(
         isFetched.current = true
         const response = await fetch(`http://localhost:3000/${url}/api?limit=${amountItems}&skip=${skip}`);
 
-        if (!response.ok) throw new Error("Failed to fetch users");
 
         const data = await response.json();
         setItems(data[itemsKey]);

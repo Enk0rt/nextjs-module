@@ -5,7 +5,6 @@ import {useGetSingleItem} from "@/hooks/useGetSingleItem";
 import {IRecipe} from "@/models/recipe/IRecipe";
 import {getUserRecipes} from "@/services/data/getData/getUserRecipes";
 import './UserItemById.scss'
-import Image from "next/image";
 
 interface UserItemByIdProps {
     userId: string

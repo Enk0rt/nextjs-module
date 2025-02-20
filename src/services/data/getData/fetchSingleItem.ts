@@ -14,7 +14,6 @@ export const fetchSingleItem = async <T>(
         isFetched.current = true;
 
         const response = await fetch(`http://localhost:3000/${url}/api`);
-        if (!response.ok) throw new Error("Failed to fetch item");
 
         const data = await response.json();
         setItem(data[itemKey] ?? null);

@@ -1,11 +1,13 @@
 import './SearchBar.scss'
 import Image from "next/image";
 
-export const SearchBar = ({ handleChangeSearchValue, searchValue}: {
+type Props={
     type: "users" | "recipes",
     handleChangeSearchValue: (value: string) => void,
     searchValue: string
-}) => {
+}
+
+export const SearchBar = ({ handleChangeSearchValue, searchValue}: Props) => {
 
     return (
         <div>
