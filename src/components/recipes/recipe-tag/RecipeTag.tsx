@@ -14,7 +14,7 @@ const RecipeTag = ({tag}: RecipeTagProps) => {
     return (
         <div className={tag===chosenTag ? 'recipe__tag mark' : 'recipe__tag'}>
             <div>
-                <Link href={`/recipe/${tag}`}>
+                <Link href={`/recipes/tag/${tag}`}>
                     #{tag}
                 </Link>
             </div>

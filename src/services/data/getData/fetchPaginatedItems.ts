@@ -17,7 +17,9 @@ export const fetchPaginatedItems = async <T>(
         const skip = (pageNumber - 1) * amountItems;
         if(isFetched.current)return
         isFetched.current = true
-        const response = await fetch(`http://localhost:3000/${url}/api?limit=${amountItems}&skip=${skip}`);
+
+        // Я спеціально поставив тут force-cache, щоб кешувались дані після запиту й дані після фетча завантажувались моментально при повторному перегляді, але у такому разі якщо в бд додадуться якісь елементи, а дані повністю будуть закешовані, то користувач не матиме змогу побачити їх, але у нашому випадку дані залишаються статичними, тому я
+        const response = await fetch(`http://localhost:3000/${url}/api?limit=${amountItems}&skip=${skip}`,{cache: 'force-cache'});
 
 
         const data = await response.json();

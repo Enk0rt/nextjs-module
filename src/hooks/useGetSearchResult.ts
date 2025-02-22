@@ -6,7 +6,7 @@ import {IRecipeResponse} from "@/models/recipe/IRecipeResponse";
 import axios from "axios";
 import {baseApiUrl} from "@/constants/constants";
 
-export const useFindItems = (type: "users" | "recipes") => {
+export const useGetSearchResult = (type: "users" | "recipes") => {
     const [searchValue, setSearchValue] = useState<string>("");
     const [searchResults, setSearchResults] = useState<IUser[] | IRecipe[]>([]);
     const [debounceTimer, setDebounceTimer] = useState<NodeJS.Timeout | null>(null);

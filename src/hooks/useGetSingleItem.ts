@@ -17,7 +17,6 @@ export const useGetSingleItem =  <T>(
             setItem,
             fetched,
             itemKey,
-
         );
     }, [url]);
     return fetched

@@ -27,8 +27,8 @@ const RecipeList = () => {
     return (
         <div className={'wrapper'}>
             <section className={'recipes'}>
-                <div className={'recipes__container'}>
                     <Search type={'recipes'}/>
+                <div className={'recipes__container'}>
                     {loading ? (
                             <div className={'loader'}><h2>Loading...</h2></div>
                         ) : (

@@ -5,6 +5,7 @@ import {useGetSingleItem} from "@/hooks/useGetSingleItem";
 import {IRecipe} from "@/models/recipe/IRecipe";
 import {getUserRecipes} from "@/services/data/getData/getUserRecipes";
 import './UserItemById.scss'
+import Link from "next/link";
 
 interface UserItemByIdProps {
     userId: string
@@ -36,7 +37,7 @@ const UserItemById = ({userId}: UserItemByIdProps) => {
                             <div className={'user__details-profile'}>
                                 <div className={'user__details-profile-info'}>
                                     <p>{user.firstName} {user.lastName}, {user.age}</p>
-                                    <p className={'capitalize'}>{user.gender} {user.birthDate}</p>
+                                    <p className={'capitalize'}>{user.gender}, {user.birthDate}</p>
                                     <p>{user.phone}</p>
                                     <p>{user.email}</p>
                                 </div>
@@ -46,28 +47,29 @@ const UserItemById = ({userId}: UserItemByIdProps) => {
                             </div>
                             <div className={'user__details-recipes'}>
                                 <h2 className={'user__details-recipes-title'}>User Recipes</h2>
-
-                                    {
-                                        loading ? (
-                                            <div className={'loader'}><h2>Loading...</h2></div>
-                                        ) : (
-                                            <div className={'user__details-recipes-list'}>
-                                                {
-                                                    userRecipes.length === 0 ? (
-                                                        <div>
-                                                            <p>This user doesn`t have any recipes</p>
-                                                        </div>
-                                                    ) : (
-                                                        <div>
-                                                            {userRecipes.map((recipe, index) => <p
-                                                                className={'user__details-recipes-item'}
-                                                                key={index}>{recipe.name}</p>)}
-                                                        </div>
-                                                    )
-                                                }
-                                            </div>
-                                        )
-                                    }
+                                {
+                                    loading ? (
+                                        <div className={'loader'}><h2>Loading...</h2></div>
+                                    ) : (
+                                        <div className={'user__details-recipes-list'}>
+                                            {
+                                                userRecipes.length === 0 ? (
+                                                    <div>
+                                                        <p>This user doesn`t have any recipes</p>
+                                                    </div>
+                                                ) : (
+                                                    <div>
+                                                        {userRecipes.map((recipe, index) =>
+                                                            <p className={'user__details-recipes-item'}
+                                                               key={index}><Link
+                                                                href={`/recipes/${recipe.id}`}>{recipe.name}</Link>
+                                                            </p>)}
+                                                    </div>
+                                                )
+                                            }
+                                        </div>
+                                    )
+                                }
                             </div>
                         </div>
                     )

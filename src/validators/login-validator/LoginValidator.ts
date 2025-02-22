@@ -5,7 +5,7 @@ export const loginValidator = Joi.object({
         'string.min':'*Username must be at least 4 chars long',
         'string.empty':'*This field is required',
     }),
-    password: Joi.string().min(6).required().messages({
+    password: Joi.string().min(4).required().messages({
         'string.min':'*Password must be at least 4 chars long',
         'string.empty':'*This field is required',
     })

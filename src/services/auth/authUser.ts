@@ -16,7 +16,6 @@ export const auth = axios.create({
 
 export const loginUser = async<T>(data:LoginType)=> {
     return await auth.post<T>('/login',data)
-
 }
 
 export const refresh = async () => {

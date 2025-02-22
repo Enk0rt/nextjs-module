@@ -32,10 +32,10 @@ const RecipeItemById = ({recipeId}: RecipeItemByIdProps) => {
                         <div className={'recipe__details-container'}>
                             <h2 className={'recipe__details-title'}>{recipe.name}</h2>
                             <div className={'recipe__details-info'}>
-                                <div className={'flex flex-col gap-4'}>
-                                    <img className={'rounded-md'} src={recipe.image} alt={recipe.name} width={'400'}
-                                         height={'400'}/>
-                                    <div className={'recipe__details-info-tag'}>
+                                <div className={'recipe__details-info-container'}>
+                                    <img className={'recipe__details-info-img'} src={recipe.image} alt={recipe.name} width={'500'}
+                                         height={'500'}/>
+                                    <div className={'recipe__details-info-tag-container'}>
                                         {
                                             recipe.tags.map((tag, index) => <RecipeTag key={index} tag={tag}/>)
                                         }

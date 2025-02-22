@@ -7,6 +7,7 @@ import Logout from "@/components/logout/Logout";
 import {logout} from "@/server-actions/logout";
 import {jwtDecode} from "jwt-decode";
 import {IUserWithTokens} from "@/models/auth/IUserWithTokens";
+import Image from "next/image";
 
 
 interface MenuProps {
@@ -26,7 +27,7 @@ const Menu =async ({refreshToken}: MenuProps) => {
         <>
             <nav className={'nav '}>
             <div className={'menu__logo'}>
-                <h2>My Next.Js App</h2>
+                <Image src={'/next.svg'} alt={'logo'} width={'100'} height={'40'}/>
             </div>
                 {refreshToken ? (
                     <ul className={'nav__list'}>

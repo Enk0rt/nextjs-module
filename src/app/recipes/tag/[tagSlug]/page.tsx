@@ -1,14 +1,17 @@
 import {Suspense} from "react";
 import RecipeTagList from "@/components/recipes/recipe-tag-list/RecipeTagList";
 
+type Props = {
+    params : {tagSlug:string}
+}
 
-
-const RecipeTagPage= async () => {
+const RecipeTagPage= async ({params}:Props) => {
+    const {tagSlug} = await params
 
     return (
         <div>
             <Suspense fallback={<div>Loading...</div>}>
-                <RecipeTagList/>
+                <RecipeTagList tagSlug={tagSlug}/>
             </Suspense>
         </div>
     );
