@@ -66,8 +66,8 @@ The project uses SCSS for component styling.
 - A CSS module approach is used for style isolation.
  \
  \
- \
 **Installation & Setup**
+ \
  \
 Clone the repository:
 ```
