@@ -1,4 +1,5 @@
-📌 Опис проєкту
+📌 Project Description
+
 This project is a Next.js application that allows users to browse users or recipes and filter recipes. It also includes authentication, search, and pagination functionality.
 
 🚀 Technical Stack:
@@ -96,3 +97,13 @@ Open in the browser:
 http://localhost:3000
 ```
  
+![image](https://github.com/user-attachments/assets/d2a561c5-7e92-4977-a9b7-6fcb3185053d)
+![image](https://github.com/user-attachments/assets/c527af86-6402-4d80-9cec-5eed4deb9f2f)
+![image](https://github.com/user-attachments/assets/50d5062f-c3cf-4f45-8a3c-bff271af59f2)
+![image](https://github.com/user-attachments/assets/1b3e3829-dcec-426d-b567-bed40ba8a3c3)
+![image](https://github.com/user-attachments/assets/3eda8dd0-ec85-4c53-ace3-5e9db48d6d1e)
+![image](https://github.com/user-attachments/assets/ef2f221a-ebbd-4718-b2a2-26b1ede95d85)
+
+
+
+
