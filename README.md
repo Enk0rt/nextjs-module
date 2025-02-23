@@ -96,7 +96,10 @@ Open in the browser:
 ```
 http://localhost:3000
 ```
- 
+
+Application appearance
+
+
 ![image](https://github.com/user-attachments/assets/d2a561c5-7e92-4977-a9b7-6fcb3185053d)
 ![image](https://github.com/user-attachments/assets/c527af86-6402-4d80-9cec-5eed4deb9f2f)
 ![image](https://github.com/user-attachments/assets/50d5062f-c3cf-4f45-8a3c-bff271af59f2)
