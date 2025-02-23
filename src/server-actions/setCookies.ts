@@ -1,15 +1,15 @@
 "use server";
 
-import { cookies } from "next/headers";
+import {cookies} from "next/headers";
 
-export async function  setCookies(accessToken: string, refreshToken: string) {
+export async function setCookies(accessToken: string, refreshToken: string) {
     const cookieStore = await cookies();
 
     cookieStore.set("accessToken", accessToken, {
         httpOnly: true,
         path: "/",
         sameSite: "lax",
-        maxAge:  60*60
+        maxAge: 60 * 60
     });
 
     cookieStore.set("refreshToken", refreshToken, {
@@ -19,5 +19,5 @@ export async function  setCookies(accessToken: string, refreshToken: string) {
         maxAge: 7 * 24 * 60 * 60,
     });
 
-    return { success: true };
+    return {success: true};
 }

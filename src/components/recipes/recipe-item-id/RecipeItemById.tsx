@@ -5,6 +5,7 @@ import {useGetSingleItem} from "@/hooks/useGetSingleItem";
 import './RecipeItemById.scss'
 import RecipeTag from "@/components/recipes/recipe-tag/RecipeTag";
 import Link from "next/link";
+import {routes} from "@/constants/constants";
 
 interface RecipeItemByIdProps {
     recipeId: string
@@ -13,8 +14,9 @@ interface RecipeItemByIdProps {
 const RecipeItemById = ({recipeId}: RecipeItemByIdProps) => {
     const [recipe, setRecipe] = useState<IRecipe | null>(null)
     const [loading, setLoading] = useState<boolean>(false)
+
     useGetSingleItem(
-        `recipes/${recipeId}`,
+        `${routes.recipes}/${recipeId}`,
         setLoading,
         setRecipe,
         'recipe'
@@ -33,7 +35,8 @@ const RecipeItemById = ({recipeId}: RecipeItemByIdProps) => {
                             <h2 className={'recipe__details-title'}>{recipe.name}</h2>
                             <div className={'recipe__details-info'}>
                                 <div className={'recipe__details-info-container'}>
-                                    <img className={'recipe__details-info-img'} src={recipe.image} alt={recipe.name} width={'500'}
+                                    <img className={'recipe__details-info-img'} src={recipe.image} alt={recipe.name}
+                                         width={'500'}
                                          height={'500'}/>
                                     <div className={'recipe__details-info-tag-container'}>
                                         {
@@ -54,7 +57,8 @@ const RecipeItemById = ({recipeId}: RecipeItemByIdProps) => {
                                     </div>
                                 </div>
                             </div>
-                                   <Link className={'recipe__details-link'} href={`/users/${recipe.userId}`}>Tap to go to author profile</Link>
+                            <Link className={'recipe__details-link'} href={`/users/${recipe.userId}`}>Tap to go to
+                                author profile</Link>
                         </div>
                     )
 

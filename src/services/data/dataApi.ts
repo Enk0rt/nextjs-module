@@ -1,5 +1,4 @@
 import axios from "axios";
-import {cookies} from "next/headers";
 import {baseApiUrl} from "@/constants/constants";
 import {refresh} from "@/services/auth/authUser";
 import {setCookies} from "@/server-actions/setCookies";
@@ -30,12 +29,6 @@ axiosInstance.interceptors.response.use(
         if (error.response?.status === 401 && !error.config._retry) {
 
             try {
-                const cookieStore = await cookies()
-                const refreshToken = cookieStore.get("refreshToken")?.value;
-                if (!refreshToken) {
-                    throw new Error("No refresh token available");
-                }
-
                 const refreshResponse = await refresh()
                 const {accessToken: accessToken, refreshToken: newRefreshToken} = await refreshResponse.json();
                 await setCookies(accessToken, newRefreshToken)
@@ -53,6 +46,6 @@ axiosInstance.interceptors.response.use(
     }
 );
 export const getApiData = async <T>(url: string): Promise<T> => {
-        const response = await axiosInstance.get<T>(url);
-        return response.data;
+    const response = await axiosInstance.get<T>(url);
+    return response.data;
 }

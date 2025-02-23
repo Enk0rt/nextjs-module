@@ -1,13 +1,13 @@
 import './SearchBar.scss'
 import Image from "next/image";
 
-type Props={
+type Props = {
     type: "users" | "recipes",
     handleChangeSearchValue: (value: string) => void,
     searchValue: string
 }
 
-export const SearchBar = ({ handleChangeSearchValue, searchValue}: Props) => {
+export const SearchBar = ({handleChangeSearchValue, searchValue}: Props) => {
 
     return (
         <div>
@@ -18,8 +18,7 @@ export const SearchBar = ({ handleChangeSearchValue, searchValue}: Props) => {
                         type="text"
                         placeholder="Search..."
                         value={searchValue}
-                        onChange={(e) => handleChangeSearchValue(e.target.value)}
-                    />
+                        onChange={(e) => handleChangeSearchValue(e.target.value)}/>
                     <Image
                         className="search-bar__image"
                         src="/svg/search.svg"

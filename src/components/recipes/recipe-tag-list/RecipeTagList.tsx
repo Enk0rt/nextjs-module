@@ -6,8 +6,8 @@ import {useState} from "react";
 import {IRecipe} from "@/models/recipe/IRecipe";
 import {useGetPaginatedItems} from "@/hooks/useGetItems";
 import '../recipe-list/Recipes.scss'
+import {RECIPES_PER_PAGE, routes} from "@/constants/constants";
 
-const RECIPES_PER_PAGE = 5
 
 interface RecipeTagListProps {
     tagSlug: string
@@ -22,7 +22,7 @@ const RecipeTagList = ({tagSlug}: RecipeTagListProps) => {
 
     const fetched = useGetPaginatedItems(
         page,
-        `recipes/tag/${tagSlug}`,
+        `${routes.recipes}/tag/${tagSlug}`,
         setLoading,
         RECIPES_PER_PAGE,
         setFilteredRecipes,

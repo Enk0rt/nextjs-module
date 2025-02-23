@@ -3,7 +3,7 @@ import "./Header.scss"
 import {retrieveCookie} from "@/services/data/helpers/retrieveCookies";
 
 
-const Header =async () => {
+const Header = async () => {
 
     const {refreshToken} = await retrieveCookie()
     console.log(refreshToken)

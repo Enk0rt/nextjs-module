@@ -10,7 +10,7 @@ const SingleRecipePage: FC<Props> = async ({params}) => {
 
     return (
         <div>
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<div><h2>Loading...</h2></div>}>
                 <RecipeItemById recipeId={recipeId}/>
             </Suspense>
         </div>

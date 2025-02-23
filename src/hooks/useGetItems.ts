@@ -2,18 +2,18 @@ import {Dispatch, SetStateAction, useEffect, useRef} from "react";
 import {fetchPaginatedItems} from "@/services/data/getData/fetchPaginatedItems";
 
 
-export const useGetPaginatedItems =  <T>(
+export const useGetPaginatedItems = <T>(
     pageNumber: number,
-    url:string,
+    url: string,
     setLoading: Dispatch<SetStateAction<boolean>>,
     amountItems: number,
     setItems: Dispatch<SetStateAction<T[]>>,
-    itemsKey:string,
+    itemsKey: string,
     setTotalUsers: Dispatch<SetStateAction<number>>
 ) => {
     const fetched = useRef(false)
 
-        useEffect(() => {
+    useEffect(() => {
         fetchPaginatedItems<T>(
             pageNumber,
             url,

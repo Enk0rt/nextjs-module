@@ -1,4 +1,4 @@
-.search-results{
+.search-results {
   margin-top: 4px;
   background: rgba(234, 234, 234, 0.79);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
@@ -10,15 +10,17 @@
   max-height: 408px;
   overflow-y: auto;
 }
-.search-results__item{
+
+.search-results__item {
   padding: 8px;
-  &:hover{
+
+  &:hover {
     background: rgba(255, 255, 255, 0.48);
 
   }
 }
 
-.search__wrapper{
+.search__wrapper {
   position: relative;
 }
 
@@ -29,6 +31,7 @@
 
   border-radius: 20px;
 }
-.search-results__item h2{
+
+.search-results__item h2 {
   padding: 0 10px;
 }

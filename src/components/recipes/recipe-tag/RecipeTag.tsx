@@ -2,6 +2,7 @@
 import Link from "next/link";
 import './RecipeTag.scss'
 import {useParams} from "next/navigation";
+import {routes} from "@/constants/constants";
 
 interface RecipeTagProps {
     tag: string
@@ -14,7 +15,7 @@ const RecipeTag = ({tag}: RecipeTagProps) => {
     return (
         <div className={tag===chosenTag ? 'recipe__tag mark' : 'recipe__tag'}>
             <div>
-                <Link href={`/recipes/tag/${tag}`}>
+                <Link href={`${routes.recipes}/tag/${tag}`}>
                     #{tag}
                 </Link>
             </div>

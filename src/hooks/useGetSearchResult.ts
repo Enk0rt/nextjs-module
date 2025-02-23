@@ -1,10 +1,9 @@
-import { useEffect, useState } from "react";
+import {useEffect, useState} from "react";
 import {IUser} from "@/models/user/IUser";
 import {IRecipe} from "@/models/recipe/IRecipe";
 import {IUserResponse} from "@/models/user/IUserResponse";
 import {IRecipeResponse} from "@/models/recipe/IRecipeResponse";
-import axios from "axios";
-import {baseApiUrl} from "@/constants/constants";
+import {axiosInstance} from "@/services/data/dataApi";
 
 export const useGetSearchResult = (type: "users" | "recipes") => {
     const [searchValue, setSearchValue] = useState<string>("");
@@ -28,13 +27,13 @@ export const useGetSearchResult = (type: "users" | "recipes") => {
                 let results: IUser[] | IRecipe[] = [];
 
                 if (type === "users") {
-                    const { data } = await axios.get<IUserResponse>(`${baseApiUrl}/${type}?limit=0`);
+                    const {data} = await axiosInstance.get<IUserResponse>(`/${type}?limit=0`);
                     results = data.users.filter((user: IUser) =>
                         `${user.firstName} ${user.lastName}`.toLowerCase().includes(value.toLowerCase()) ||
                         user.id.toString().includes(value)
                     );
                 } else if (type === "recipes") {
-                    const { data } = await axios.get<IRecipeResponse>(`${baseApiUrl}/${type}?limit=0`);
+                    const {data} = await axiosInstance.get<IRecipeResponse>(`/${type}?limit=0`);
                     results = data.recipes.filter((recipe: IRecipe) =>
                         recipe.name.toLowerCase().includes(value.toLowerCase()) ||
                         recipe.id.toString().includes(value)

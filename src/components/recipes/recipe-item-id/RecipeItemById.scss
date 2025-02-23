@@ -1,5 +1,6 @@
 .recipe__details {
   width: 100%;
+  height: 100vh;
   margin-top: 15px;
   display: flex;
   justify-content: center;
@@ -26,12 +27,14 @@
     margin-top: 20px;
     display: flex;
     gap: 60px;
-    &-img{
+
+    &-img {
       min-height: 360px;
       min-width: 360px;
       border-radius: 10px;
 
     }
+
     &-container {
       display: flex;
       flex-direction: column;
@@ -80,10 +83,12 @@
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     transition: .3s ease;
-    &:hover{
+
+    &:hover {
       color: rgb(255, 255, 255);
     }
-    &:focus{
+
+    &:focus {
       color: rgb(255, 255, 255);
     }
   }

@@ -1,4 +1,4 @@
-
+'use server'
 import {cookies} from "next/headers";
 
 export const retrieveCookie =  async ():Promise<{ accessToken: string;refreshToken: string }> => {

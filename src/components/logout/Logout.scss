@@ -1,9 +1,10 @@
-.nav__list-item--red{
-  &:hover{
+.nav__list-item--red {
+  &:hover {
     background-color: #ed4242;
     border: 1px solid transparent;
   }
-  &:focus{
+
+  &:focus {
     background-color: #ed4242;
     border: 1px solid transparent;
   }

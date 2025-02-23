@@ -10,7 +10,7 @@ const Users:FC<Props> = async ({params}) => {
     const  {userId} = await params
 
     return (
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div><h2>Loading...</h2></div>}>
             <UserItemById userId={userId} />
         </Suspense>
     );

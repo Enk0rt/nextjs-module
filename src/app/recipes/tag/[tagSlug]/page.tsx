@@ -10,7 +10,7 @@ const RecipeTagPage= async ({params}:Props) => {
 
     return (
         <div>
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<div className={'loader'}><h2>Loading...</h2></div>}>
                 <RecipeTagList tagSlug={tagSlug}/>
             </Suspense>
         </div>

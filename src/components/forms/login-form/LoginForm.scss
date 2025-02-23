@@ -1,4 +1,4 @@
-.form{
+.form {
   padding: 20px;
   width: 360px;
   display: flex;
@@ -10,29 +10,33 @@
   color: #0a0a0a;
 
   border-radius: 20px;
-  &__title{
+
+  &__title {
     color: black;
     text-align: center;
   }
-  &__input{
+
+  &__input {
     position: relative;
 
 
-    &-title{
+    &-title {
       padding: 0 4px;
       position: absolute;
-      top:-12px;
+      top: -12px;
       left: 20px;
       background-color: white;
     }
-    &-field{
+
+    &-field {
       width: 100%;
       padding: 8px 16px;
       border: 1px solid black;
       border-radius: 20px;
     }
   }
-  &__btn{
+
+  &__btn {
     margin-top: 8px;
     width: 100px;
     align-self: center;
@@ -41,13 +45,15 @@
     border-radius: 20px;
     transition: .3s ease;
     background-color: transparent;
-    &:hover,{
+
+    &:hover, {
       border: 1px solid black;
       border-radius: 20px;
       background-color: black;
       color: white;
     }
-    &:focus{
+
+    &:focus {
       border: 1px solid black;
       border-radius: 20px;
       background-color: black;

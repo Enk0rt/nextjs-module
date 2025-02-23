@@ -5,6 +5,6 @@ export interface IUserResponse {
     total: number;
     skip: number;
     limit: number;
-    accessToken:string
-    refreshToken:string
+    accessToken: string
+    refreshToken: string
 }

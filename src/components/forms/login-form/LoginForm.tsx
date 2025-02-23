@@ -13,7 +13,7 @@ interface LoginFormProps {
 }
 
 const LoginForm = ({setIsActive, isActive}: LoginFormProps) => {
-    const {handleSubmit, register,formState:{errors}, reset} = useForm<IForm>({
+    const {handleSubmit, register, formState: {errors}, reset} = useForm<IForm>({
         mode: 'all',
         resolver: joiResolver(loginValidator)
     })
@@ -27,7 +27,7 @@ const LoginForm = ({setIsActive, isActive}: LoginFormProps) => {
     }
 
     useEffect(() => {
-        if(!isActive){
+        if (!isActive) {
             reset()
         }
     }, [isActive]);
@@ -37,14 +37,14 @@ const LoginForm = ({setIsActive, isActive}: LoginFormProps) => {
             <form className={'form'} onSubmit={handleSubmit(submitAndLogin)}>
                 <h2 className={'form__title'}>Login</h2>
                 <div className={'form__input'}>
-                   <p className={'text-red-500 text-xs mb-2 h-4'}> {errors && errors.username?.message}</p>
+                    <p className={'text-red-500 text-xs mb-2 h-4'}> {errors && errors.username?.message}</p>
                     <div className={'relative'}>
                         <span className={'form__input-title'}>Username</span>
                         <input className={'form__input-field'} type="text" {...register("username")}/>
                     </div>
                 </div>
                 <div className={'form__input'}>
-                <p className={'text-red-500 text-xs mb-2 h-4'}> {errors && errors.password?.message}</p>
+                    <p className={'text-red-500 text-xs mb-2 h-4'}> {errors && errors.password?.message}</p>
                     <div className={'relative'}>
                         <span className={'form__input-title'}>Password</span>
                         <input className={'form__input-field'} type="text" {...register("password")}/>

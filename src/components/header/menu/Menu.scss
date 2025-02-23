@@ -1,26 +1,30 @@
-.nav{
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    font-size: 20px;
-  &__list{
+.nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+
+  &__list {
     width: 600px;
     display: flex;
     gap: 18px;
     justify-content: flex-end;
     align-items: center;
-    &-item{
+
+    &-item {
       padding: 2px 15px;
       border: 1px solid transparent;
       border-radius: 20px;
       transition: .3s ease;
       background-color: transparent;
-      &:hover,{
+
+      &:hover, {
         border-radius: 20px;
         background-color: rgba(255, 255, 255, 0.3);
         color: rgb(0, 0, 0);
       }
-      &:focus{
+
+      &:focus {
         border-radius: 20px;
         background-color: rgba(255, 255, 255, 0.3);
 
@@ -28,12 +32,16 @@
       }
     }
   }
-  &__user{
-    border-left:1px solid black ;
-    padding: 0 31px ;
+
+  &__user {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    border-left: 1px solid black;
+    padding: 0 31px;
   }
 }
 
-.menu__logo{
+.menu__logo {
   align-self: center;
 }

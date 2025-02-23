@@ -6,6 +6,7 @@ import {IRecipe} from "@/models/recipe/IRecipe";
 import {getUserRecipes} from "@/services/data/getData/getUserRecipes";
 import './UserItemById.scss'
 import Link from "next/link";
+import {routes} from "@/constants/constants";
 
 interface UserItemByIdProps {
     userId: string
@@ -21,7 +22,7 @@ const UserItemById = ({userId}: UserItemByIdProps) => {
     }, []);
 
     useGetSingleItem(
-        `users/${userId}`,
+        `${routes.users}/${userId}`,
         setLoading,
         setUser,
         'user'

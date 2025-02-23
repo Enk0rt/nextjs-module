@@ -1,9 +1,10 @@
-.search-bar__wrapper{
+.search-bar__wrapper {
   display: flex;
   align-items: center;
 
 }
-.search-bar__input{
+
+.search-bar__input {
   padding: 4px 16px 4px 44px;
   color: black;
   outline: none;
@@ -11,19 +12,22 @@
   border-radius: 20px;
 
 }
-.search-bar__image{
+
+.search-bar__image {
   @apply size-5 absolute left-3 top-1.5
 }
-.w{
+
+.w {
   box-shadow: 0 0 8px #686868;
 }
 
-.search-bar__container{
+.search-bar__container {
   position: relative;
   width: 500px;
 
 }
-.search-bar__input{
+
+.search-bar__input {
   width: 100%;
   background: transparent;
   border: 1px solid rgba(0, 0, 0, 0.66);

@@ -6,8 +6,8 @@ import {IRecipe} from "@/models/recipe/IRecipe";
 import Pagination from "@/components/pagination/Pagination";
 import {useGetPaginatedItems} from "@/hooks/useGetItems";
 import {Search} from "@/components/search/Search";
+import {RECIPES_PER_PAGE, routes} from "@/constants/constants";
 
-const RECIPES_PER_PAGE = 5
 
 const RecipeList = () => {
     const [page, setPage] = useState<number>(1)
@@ -17,7 +17,7 @@ const RecipeList = () => {
 
     const fetched = useGetPaginatedItems(
         page,
-        'recipes',
+        routes.recipes,
         setLoading,
         RECIPES_PER_PAGE,
         setRecipes,
@@ -27,15 +27,15 @@ const RecipeList = () => {
     return (
         <div className={'wrapper'}>
             <section className={'recipes'}>
-                    <Search type={'recipes'}/>
+                <Search type={'recipes'}/>
                 <div className={'recipes__container'}>
                     {loading ? (
-                            <div className={'loader'}><h2>Loading...</h2></div>
-                        ) : (
-                            <div className={'recipes__list'}>
-                                {recipes.map((recipe, index) => <RecipeItem key={index} recipe={recipe}/>)}
-                            </div>
-                        )}
+                        <div className={'loader'}><h2>Loading...</h2></div>
+                    ) : (
+                        <div className={'recipes__list'}>
+                            {recipes.map((recipe, index) => <RecipeItem key={index} recipe={recipe}/>)}
+                        </div>
+                    )}
                     <Pagination
                         setPage={setPage}
                         page={page}
