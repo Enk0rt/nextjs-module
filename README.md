@@ -1,7 +1,7 @@
 📌 Опис проєкту
 This project is a Next.js application that allows users to browse, create, and filter recipes. It also includes authentication, search, and pagination functionality.
  
- 
+ \
 🚀 Technical Stack:
 - Next.js 15
 - TypeScript
@@ -63,6 +63,7 @@ The project uses SCSS for component styling.
  
  
 **Installation & Setup**
+ 
 Clone the repository:
 ```
 git clone https://github.com/Enk0rt/nextjs-module.git
