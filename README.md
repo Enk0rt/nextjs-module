@@ -1,8 +1,6 @@
 📌 Опис проєкту
-This project is a Next.js application that allows users to browse, create, and filter recipes. It also includes authentication, search, and pagination functionality.
+This project is a Next.js application that allows users to browse users or recipes and filter recipes. It also includes authentication, search, and pagination functionality.
 
- 
- 
 🚀 Technical Stack:
 - Next.js 15
 - TypeScript
@@ -11,7 +9,6 @@ This project is a Next.js application that allows users to browse, create, and f
 - SCSS
 - Tailwind CSS
   
- 
 🔑 Project Features
 - Authentication – Registration, login, session management via JWT.
 - User List – Displaying all users.
@@ -20,9 +17,9 @@ This project is a Next.js application that allows users to browse, create, and f
 - Pagination – Lazy loading of items.
 - Dynamic Routes – /users/[id], /recipes/[id], /recipes/tag/[tag].
 
-
- 
+	
 **1. Authentication & Session Management**
+
 The project uses JWT tokens for user authentication.
 
  
@@ -34,6 +31,7 @@ The project uses JWT tokens for user authentication.
 
   
 **2. User & Recipe Search**
+
 A client-side search is implemented using a custom hook useFindItems.tsx.
 
  
@@ -45,6 +43,7 @@ A client-side search is implemented using a custom hook useFindItems.tsx.
 
   
 **3. Fetching & Displaying Data**
+
 The project uses custom hooks and API requests to retrieve data.
 
  
@@ -55,6 +54,7 @@ The project uses custom hooks and API requests to retrieve data.
 
   
 **4. Dynamic Pages in Next.js**
+
 The project uses Next.js App Router for routing.
 
  
@@ -64,6 +64,7 @@ The project uses Next.js App Router for routing.
 
   
 **5. Styling & UI**
+
 The project uses SCSS for component styling.
 
  
