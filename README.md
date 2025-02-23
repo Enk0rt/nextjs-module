@@ -1,85 +1,81 @@
 📌 Опис проєкту
-Цей проєкт – це Next.js застосунок, який дозволяє користувачам переглядати, створювати та фільтрувати рецепти. Також реалізовано систему аутентифікації, пошуку та пагінації.
+This project is a Next.js application that allows users to browse, create, and filter recipes. It also includes authentication, search, and pagination functionality.
 
-1. Аутентифікація та управління сесією
-Проєкт використовує JWT-токени для аутентифікації користувачів.
+🚀 Technical Stack:
+- Next.js 15
+- TypeScript
+- Axios
+- Rest API
+- SCSS
+- Tailwind CSS
 
-При вході користувач надсилає запит до API (authApi.ts).
-Сервер повертає accessToken і refreshToken, які зберігаються у localStorage.
-При кожному запиті accessToken додається в заголовки для авторизації.
-Якщо accessToken закінчується, використовується refreshToken для отримання нового токена.
-При виході з акаунту токени видаляються, а стан скидається.
+🔑 Project Features
+✔ Authentication – Registration, login, session management via JWT.
+✔ User List – Displaying all users.
+✔ Recipe List – Viewing recipes with tag-based filtering.
+✔ Search – Debounced search for users and recipes.
+✔ Pagination – Lazy loading of items.
+✔ Dynamic Routes – /users/[id], /recipes/[id], /recipes/tag/[tag].
 
-2. Пошук користувачів та рецептів
-Реалізовано клієнтський пошук через кастомний хук useFindItems.tsx.
+**1. Authentication & Session Management**
+The project uses JWT tokens for user authentication.
 
-Користувач вводить запит у поле пошуку.
-Використовується дебаунс (затримка 300ms), щоб уникнути зайвих запитів.
-Дані отримуються через API-запит (getData.ts) або фільтруються у локальному масиві.
-Результати відображаються у SearchResults.tsx.
-Якщо користувач клікає поза пошуком – поле очищується.
+- When logging in, the user sends a request to the API (authApi.ts).
+- The server returns an accessToken and refreshToken, which are stored in localStorage.
+- The accessToken is included in the headers for authorization with each request.
+- If the accessToken expires, the refreshToken is used to obtain a new token.
+- When logging out, tokens are removed, and the session is reset.
+  
+**2. User & Recipe Search**
+A client-side search is implemented using a custom hook useFindItems.tsx.
 
-3. Отримання та відображення даних
-Проєкт використовує хуки та кастомні запити до API для отримання даних.
+- The user enters a search query in the input field.
+- Debounce (300ms delay) prevents excessive API requests.
+- Data is fetched via an API request (getData.ts) or filtered from a local array.
+- Results are displayed in SearchResults.tsx.
+- Clicking outside the search field clears the input.
 
-useGetSingleItem.ts – отримує один елемент (користувач / рецепт).
-getUserRecipes(userId) – отримує всі рецепти конкретного користувача.
-useGetPaginatedItems.ts – отримує пагіновані списки рецептів / користувачів.
-Дані кешуються в локальному стані через useState.
+**3. Fetching & Displaying Data**
+The project uses custom hooks and API requests to retrieve data.
 
-4. Динамічні сторінки у Next.js
-Проєкт використовує Next.js App Router для маршрутизації.
+- useGetSingleItem.ts – Fetches a single item (user/recipe).
+- getUserRecipes(userId) – Retrieves all recipes for a specific user.
+- useGetPaginatedItems.ts – Fetches paginated lists of recipes/users.
+- Data is cached in local state using useState.
 
-/users/[id] – Сторінка профілю користувача.
-/recipes/[id] – Сторінка з деталями рецепту.
-/recipes/tag/[tag] – Фільтрація рецептів за тегами.
-Як працює рендеринг:
+**4. Dynamic Pages in Next.js**
+The project uses Next.js App Router for routing.
 
-Отримання id через useParams().
-Виклик useGetSingleItem() або getUserRecipes().
-Під час завантаження показується Loading....
-Після отримання даних – рендеринг контенту.
-5. Стилізація та UI
-Проєкт використовує SCSS для стилізації компонентів.
+- /users/[id] – User profile page.
+- /recipes/[id] – Recipe details page.
+- /recipes/tag/[tag] – Recipe filtering by tags.
 
-Компоненти мають власні SCSS-файли (SearchResults.scss, UserItem.scss тощо).
-Анімації додаються через transition та hover.
-Використовується CSS-модульний підхід для ізоляції стилів.
+**5. Styling & UI**
+The project uses SCSS for component styling.
 
+- Each component has its own SCSS file (SearchResults.scss, UserItem.scss, etc.).
+- Animations are applied using transition and hover.
+- A CSS module approach is used for style isolation.
 
-🔑 Функціонал проєкту
-✔ Аутентифікація – Реєстрація, вхід, збереження сесії через JWT.
-✔ Список користувачів – Відображення всіх користувачів.
-✔ Список рецептів – Перегляд рецептів з фільтрацією за тегами.
-✔ Пошук – Дебаунс-пошук користувачів та рецептів.
-✔ Пагінація – Ліниве завантаження елементів.
-✔ Динамічні маршрути – /users/[id], /recipes/[id], /recipes/tag/[tag].
+**Installation & Setup**
 
-
-🚀 Технології
-Next.js 15
-TypeScript
-Axios
-SCSS
-Tailwind CSS
-
-Клонувати репозиторій:
+Clone the repository:
 ```
 git clone https://github.com/Enk0rt/nextjs-module.git
 cd nextjs-module
 ```
 
-Встановити залежності:
+Install dependencies:
 ```
 npm install
 ```
 
-Запустити проєкт:
+Run the project:
 ```
 npm run dev
 ```
 
-Відкрити у браузері:
+Open in the browser:
 ```
 http://localhost:3000
 ```
