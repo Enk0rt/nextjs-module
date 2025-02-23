@@ -1,6 +1,7 @@
 📌 Опис проєкту
 This project is a Next.js application that allows users to browse, create, and filter recipes. It also includes authentication, search, and pagination functionality.
 
+
 🚀 Technical Stack:
 - Next.js 15
 - TypeScript
@@ -8,6 +9,7 @@ This project is a Next.js application that allows users to browse, create, and f
 - Rest API
 - SCSS
 - Tailwind CSS
+
 
 🔑 Project Features
 - Authentication – Registration, login, session management via JWT.
@@ -17,6 +19,7 @@ This project is a Next.js application that allows users to browse, create, and f
 - Pagination – Lazy loading of items.
 - Dynamic Routes – /users/[id], /recipes/[id], /recipes/tag/[tag].
 
+
 **1. Authentication & Session Management**
 The project uses JWT tokens for user authentication.
 
@@ -25,7 +28,7 @@ The project uses JWT tokens for user authentication.
 - The accessToken is included in the headers for authorization with each request.
 - If the accessToken expires, the refreshToken is used to obtain a new token.
 - When logging out, tokens are removed, and the session is reset.
-  
+
 **2. User & Recipe Search**
 A client-side search is implemented using a custom hook useFindItems.tsx.
 
@@ -57,8 +60,9 @@ The project uses SCSS for component styling.
 - Animations are applied using transition and hover.
 - A CSS module approach is used for style isolation.
 
-**Installation & Setup**
 
+
+**Installation & Setup**
 Clone the repository:
 ```
 git clone https://github.com/Enk0rt/nextjs-module.git
