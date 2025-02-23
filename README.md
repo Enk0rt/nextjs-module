@@ -10,12 +10,12 @@ This project is a Next.js application that allows users to browse, create, and f
 - Tailwind CSS
 
 🔑 Project Features
-✔ Authentication – Registration, login, session management via JWT.
-✔ User List – Displaying all users.
-✔ Recipe List – Viewing recipes with tag-based filtering.
-✔ Search – Debounced search for users and recipes.
-✔ Pagination – Lazy loading of items.
-✔ Dynamic Routes – /users/[id], /recipes/[id], /recipes/tag/[tag].
+ ✔ Authentication – Registration, login, session management via JWT.
+ ✔ User List – Displaying all users.
+ ✔ Recipe List – Viewing recipes with tag-based filtering.
+ ✔ Search – Debounced search for users and recipes.
+ ✔ Pagination – Lazy loading of items.
+ ✔ Dynamic Routes – /users/[id], /recipes/[id], /recipes/tag/[tag].
 
 **1. Authentication & Session Management**
 The project uses JWT tokens for user authentication.
