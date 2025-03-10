@@ -6,6 +6,7 @@ import {joiResolver} from "@hookform/resolvers/joi";
 import React, {Dispatch, SetStateAction, useEffect} from "react";
 import axios from "axios";
 import {IUserWithTokens} from "@/models/auth/IUserWithTokens";
+import {redirect} from "next/navigation";
 
 interface LoginFormProps {
     setIsActive: Dispatch<SetStateAction<boolean>>,
@@ -19,11 +20,12 @@ const LoginForm = ({setIsActive, isActive}: LoginFormProps) => {
     })
 
     const submitAndLogin = async (formData: IForm) => {
-        const {data} = await axios.post<IUserWithTokens>('http://localhost:3000/api/auth/login', formData)
+        const {data} = await axios.post<IUserWithTokens>('api/auth/login', formData)
         localStorage.setItem('user', JSON.stringify(data))
         reset()
         setIsActive(false)
         window.location.reload()
+        redirect('/')
     }
 
     useEffect(() => {

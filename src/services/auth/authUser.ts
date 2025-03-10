@@ -20,6 +20,9 @@ export const loginUser = async <T>(data: LoginType) => {
 
 export const refresh = async () => {
     const {refreshToken} = await retrieveCookie()
+    if(!refreshToken){
+        throw new Error('No token')
+    }
     return await fetch(apiUrls.refresh, {
         method: "POST",
         headers: {"Content-Type": "application/json"},

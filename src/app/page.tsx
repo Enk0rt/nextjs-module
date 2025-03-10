@@ -1,16 +1,9 @@
 import './Home.scss'
 import {retrieveCookie} from "@/services/data/helpers/retrieveCookies";
-import {IUserWithTokens} from "@/models/auth/IUserWithTokens";
-import {jwtDecode} from "jwt-decode";
+import {decodeToken} from "@/utils/decodeToken";
 
 export default async function Home() {
     const {refreshToken} = await retrieveCookie()
-    const decodeToken = (token:string):IUserWithTokens | undefined => {
-        if(token){
-            return jwtDecode(token);
-        }
-        return
-    }
     const user = decodeToken(refreshToken)
   return (
     <div className={'wrapper'}>
